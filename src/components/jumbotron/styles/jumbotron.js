@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Item = styled.div`
   display: flex;
 `;
@@ -45,4 +44,3 @@ export const Image = styled.img`
   max-width: 100%;
   height: auto;
 `;
-
