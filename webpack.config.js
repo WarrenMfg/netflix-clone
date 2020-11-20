@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = {
+const config = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     filename: 'bundle.js',
@@ -19,7 +19,13 @@ module.exports = {
         }
       }
     ]
-  },
-  devtool: 'inline-source-map',
-  mode: 'development'
+  }
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'inline-source-map';
+  }
+
+  return config;
 };
