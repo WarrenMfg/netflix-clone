@@ -1,3 +1,3 @@
 # **Netflix Clone**
 
-## WIP...
+## With Compound Styled Components
