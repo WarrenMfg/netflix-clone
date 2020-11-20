@@ -4,7 +4,8 @@ import Jumbotron from '../components/jumbotron'
 export default function Home() {
   return (
     <Jumbotron.Container>
-      <p>Home</p>
+      <Jumbotron.Title>Hello</Jumbotron.Title>
+      <Jumbotron.SubTitle>World</Jumbotron.SubTitle>
     </Jumbotron.Container>
   );
 }
