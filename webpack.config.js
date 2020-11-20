@@ -1,9 +1,9 @@
 module.exports = {
   "output": {
-    "filename": "[name].pack.js"
+    "filename": "bundle.js"
   },
   "entry": {
-    "index": "./index"
+    "index": "./src/index"
   },
   "module": {
     "rules": [

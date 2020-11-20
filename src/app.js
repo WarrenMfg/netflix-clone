@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 
 export function App() {
@@ -18,6 +17,10 @@ export function App() {
             </Route>
             <Route path="/">
                 <p>I am going to be a cloned Netflix application</p>
+                <Link to='/'>Home</Link>
+                <Link to='/signin'>Sign In</Link>
+                <Link to='/signup'>Sign Up</Link>
+                <Link to='/browse'>Browse</Link>
             </Route>
         </Switch>
     </Router>
