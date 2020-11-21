@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Container,
   Row,
+  ColumnGroup,
   Column,
   Link,
   Title,
@@ -21,6 +22,10 @@ Footer.Column = function FooterColumn({ children, ...restProps }) {
   return <Column {...restProps}>{children}</Column>;
 };
 
+Footer.ColumnGroup = function FooterColumnGroup({ children, ...restProps }) {
+  return <ColumnGroup {...restProps}>{children}</ColumnGroup>;
+};
+
 Footer.Link = function FooterLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
 };
@@ -31,8 +36,4 @@ Footer.Title = function FooterTitle({ children, ...restProps }) {
 
 Footer.Text = function FooterText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
-};
-
-Footer.Break = function FooterBreak({ ...restProps }) {
-  return <Break {...restProps} />;
 };
