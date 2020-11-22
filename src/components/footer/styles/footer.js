@@ -13,7 +13,7 @@ export const Container = styled.div`
 
   @media (max-width: 600px) {
     padding: 70px 56px;
-    margin-left: 25px;
+    margin-left: 10%;
   }
 `;
 
@@ -35,6 +35,7 @@ export const ColumnGroup = styled.div`
 
   @media (max-width: 1000px) {
     width: 100%;
+    justify-content: space-between;
   }
 `;
 
@@ -45,6 +46,7 @@ export const Column = styled.div`
   width: 50%;
 
   @media (max-width: 1000px) {
+    width: 40%;
     margin-bottom: 20px;
   }
 
