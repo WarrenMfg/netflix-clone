@@ -18,17 +18,15 @@ export const Container = styled.section`
 export const HTMLFormElement = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 450px;
   width: 100%;
 `;
 
 export const Input = styled.input`
   background: #333;
   border-radius: 4px;
-  border: 0;
+  border: none;
   color: white;
   height: 50px;
-  line-height: 50px;
   padding: 5px 20px;
   margin-bottom: 20px;
 `;
@@ -36,12 +34,10 @@ export const Input = styled.input`
 export const Submit = styled.button`
   background: #e50914;
   border-radius: 4px;
-  font-size: 16px;
   font-weight: bold;
   margin: 0 0 12px;
   padding: 16px;
-  border: 0;
-  color: white;
+  border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
 
@@ -55,7 +51,6 @@ export const Submit = styled.button`
 `;
 
 export const Link = styled(RouterLink)`
-  color: #fff;
   text-decoration: none;
 
   &:hover {
@@ -78,7 +73,6 @@ export const Text = styled.p`
 export const TextSmall = styled.small`
   margin-top: 10px;
   font-size: 13px;
-  line-height: normal;
   color: #8c8c8c;
 `;
 
