@@ -8,6 +8,7 @@ export const Background = styled.section`
   display: flex;
   flex-direction: column;
   background: url(${backgroundSrcUrl}) top left / cover no-repeat;
+  border-bottom: 8px solid #222;
 
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) =>
