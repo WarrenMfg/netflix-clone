@@ -13,7 +13,6 @@ export const Container = styled.div`
 `;
 
 export const Input = styled.input`
-  /* max-width: 64%; */
   width: 64%;
   border: 0;
   padding: 10px 20px;
@@ -51,7 +50,6 @@ export const Button = styled.button`
 
   img {
     margin-left: 16px;
-    background-color: rgba(0, 0, 0, 0);
     filter: invert(1);
     width: 24px;
   }

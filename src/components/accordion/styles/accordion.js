@@ -4,6 +4,7 @@ export const Container = styled.section`
   display: flex;
   justify-content: center;
   border-bottom: 8px solid #222;
+  background-color: black;
 `;
 
 export const Inner = styled.div`
@@ -44,7 +45,6 @@ export const Header = styled.h2`
   user-select: none;
 
   img {
-    background-color: rgba(0, 0, 0, 0);
     filter: invert(1);
     width: 24px;
   }

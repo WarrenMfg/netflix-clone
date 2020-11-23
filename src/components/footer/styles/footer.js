@@ -2,10 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  max-width: 1000px;
+  width: 100%;
+  /* max-width: 1000px; */
   flex-direction: column;
   padding: 70px 56px;
-  margin: auto;
+  /* margin: auto; */
+  background-color: black;
+
+  @media (min-width: 1449px) {
+    padding: 70px 25%;
+  }
 
   @media (max-width: 1000px) {
     padding: 70px 100px;
@@ -13,7 +19,7 @@ export const Container = styled.div`
 
   @media (max-width: 600px) {
     padding: 70px 56px;
-    margin-left: 10%;
+    /* margin-left: 10%; */
   }
 `;
 

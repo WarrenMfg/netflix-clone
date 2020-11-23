@@ -21,8 +21,7 @@ export const Frame = styled.div`
   align-items: center;
   margin: 0 56px;
   padding: 18px 0;
-  height: 64px;
-  background-color: rgba(0, 0, 0, 0);
+  min-height: 64px;
 
   @media (min-width: 1449px) {
     height: 90px;
