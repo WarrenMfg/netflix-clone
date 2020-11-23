@@ -6,10 +6,25 @@ import { SelectProfileContainer } from './profiles';
 import { FooterContainer } from './footer';
 
 export function BrowseContainer() {
-  const user = {
-    displayName: 'Reed Hastings',
-    photoURL: '1'
-  };
+  const users = [
+    {
+      displayName: 'Reed Hastings',
+      photoURL: '1'
+    },
+    {
+      displayName: 'Jeff Bezos',
+      photoURL: '2'
+    },
+    {
+      displayName: 'Tim Cook',
+      photoURL: '3'
+    },
+    {
+      displayName: 'Sundar Pichai',
+      photoURL: '4'
+    }
+  ];
+
   const [profile, setProfile] = useState({});
 
   return profile.displayName ? (
@@ -18,6 +33,6 @@ export function BrowseContainer() {
       <FooterContainer />
     </>
   ) : (
-    <SelectProfileContainer user={user} setProfile={setProfile} />
+    <SelectProfileContainer users={users} setProfile={setProfile} />
   );
 }
