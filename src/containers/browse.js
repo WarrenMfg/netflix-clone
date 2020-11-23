@@ -6,6 +6,7 @@ import { SelectProfileContainer } from './profiles';
 import { FooterContainer } from './footer';
 
 export function BrowseContainer() {
+  // dummy data
   const users = [
     {
       displayName: 'Reed Hastings',

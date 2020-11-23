@@ -7,8 +7,7 @@ export function HeaderContainer({ children }) {
     <Header>
       <Header.Frame>
         <Header.Logo />
-        {/* change back to sign up route */}
-        <Header.Button to={ROUTES.BROWSE}>Browse</Header.Button>
+        <Header.Button to={ROUTES.SIGN_IN}>Sign In</Header.Button>
       </Header.Frame>
       {children}
     </Header>
