@@ -1,6 +1,6 @@
 import { formatWithCursor } from 'prettier';
 import React from 'react';
-import { Accordion } from '../components';
+import { Accordion, OptForm } from '../components';
 import faqsData from '../fixtures/faqs.json';
 
 export function AccordionContainer() {
@@ -13,6 +13,9 @@ export function AccordionContainer() {
           <Accordion.Body>{faq.body}</Accordion.Body>
         </Accordion.Item>
       ))}
+      <OptForm>
+        <OptForm.Input type='number' placeholder='Email Address' />
+      </OptForm>
     </Accordion>
   );
 }

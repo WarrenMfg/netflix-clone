@@ -65,7 +65,7 @@ export const Body = styled.p`
   user-select: none;
   max-height: ${({ isOpen }) => (isOpen ? 'calc(1px * 100%)' : '0px')};
   overflow: hidden;
-  transition: all 0.25s ease-out;
+  transition: all 0.25s ease;
 
   @media (max-width: 600px) {
     font-size: 16px;
