@@ -57,6 +57,7 @@ export const Button = styled(RouterLink)`
   cursor: pointer;
   text-decoration: none;
   box-sizing: border-box;
+  transition: background-color 0.2s ease;
 
   &:hover {
     background: #f40612;
