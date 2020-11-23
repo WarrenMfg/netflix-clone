@@ -38,7 +38,7 @@ export const Submit = styled.button`
   margin: 0 0 12px;
   padding: 16px;
   border: none;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   transition: background-color 0.2s ease;
 
   &:hover {

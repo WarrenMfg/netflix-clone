@@ -7,6 +7,8 @@ export default function SignIn() {
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
 
+  const isInvalid = emailAddress === '' || password === '';
+
   const handleSignIn = e => {
     e.preventDefault();
   };
@@ -30,7 +32,7 @@ export default function SignIn() {
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
-          <Form.Submit disabled={false} type='submit'>
+          <Form.Submit disabled={isInvalid} type='submit'>
             Sign In
           </Form.Submit>
 
