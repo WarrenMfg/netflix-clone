@@ -4,14 +4,15 @@ import Form from '../components/form';
 import { FooterContainer } from '../containers/footer';
 import * as ROUTES from '../constants/routes';
 
-export default function SignIn() {
+export default function SignUp() {
   const [error, setError] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
 
-  const isInvalid = emailAddress === '' || password === '';
+  const isInvalid = firstName === '' || emailAddress === '' || password === '';
 
-  const handleSignIn = e => {
+  const handleSignUp = e => {
     e.preventDefault();
   };
 
@@ -19,10 +20,16 @@ export default function SignIn() {
     <>
       <HeaderContainer>
         <Form>
-          <Form.Title>Sign In</Form.Title>
+          <Form.Title>Sign Up</Form.Title>
           {error && <Form.Error>{error}</Form.Error>}
 
-          <Form.HTMLForm onSubmit={handleSignIn} method='POST'>
+          <Form.HTMLForm onSubmit={handleSignUp} method='POST'>
+            <Form.Input
+              type='text'
+              placeholder='Fist Name'
+              value={firstName}
+              onChange={({ target }) => setFirstName(target.value)}
+            />
             <Form.Input
               type='email'
               placeholder='Email Address'
@@ -36,12 +43,12 @@ export default function SignIn() {
               onChange={({ target }) => setPassword(target.value)}
             />
             <Form.Submit disabled={isInvalid} type='submit'>
-              Sign In
+              Sign Up
             </Form.Submit>
 
             <Form.Text>
-              New to Netflix?{' '}
-              <Form.Link to={ROUTES.SIGN_UP}>Sign up now.</Form.Link>
+              Already a user?{' '}
+              <Form.Link to={ROUTES.SIGN_IN}>Sign in now.</Form.Link>
             </Form.Text>
             <Form.TextSmall>
               This page is protected by Google reCAPTCHA.
