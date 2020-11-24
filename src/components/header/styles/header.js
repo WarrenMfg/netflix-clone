@@ -75,14 +75,14 @@ export const Button = styled(RouterLink)`
 `;
 
 export const TextLink = styled.p`
-  text-decoration: none;
   margin-right: 30px;
   font-weight: ${({ active }) => (active ? '700' : 'normal')};
+  transition: scale(1);
   cursor: pointer;
-  transition: font-weight 0.2s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    font-weight: bold;
+    transform: scale(1.1);
   }
   &:last-of-type {
     margin-right: 0;
