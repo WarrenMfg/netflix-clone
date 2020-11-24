@@ -17,7 +17,6 @@ export default function SignUp() {
   const isInvalid = firstName === '' || emailAddress === '' || password === '';
 
   const handleSignUp = e => {
-    console.log(e);
     e.preventDefault();
 
     firebase
