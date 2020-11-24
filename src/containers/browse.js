@@ -6,7 +6,8 @@ import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
 import { FooterContainer } from './footer';
 
-export function BrowseContainer() {
+export function BrowseContainer({ slides }) {
+  console.log('slides', slides);
   // dummy data
   const users = [
     {
@@ -110,6 +111,9 @@ export function BrowseContainer() {
             <Header.PlayButton>Play</Header.PlayButton>
           </Header.Feature>
         </Header>
+
+        {/* Content goes here */}
+
         <FooterContainer />
       </>
     )
