@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Background,
@@ -10,7 +10,10 @@ import {
   TextLink,
   Feature,
   Callout,
-  PlayButton
+  PlayButton,
+  Search,
+  SearchIcon,
+  SearchInput
 } from './styles/header';
 import * as ROUTES from '../../constants/routes';
 
@@ -65,4 +68,33 @@ Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
 
 Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
+};
+
+Header.Search = function HeaderSearch({
+  searchTerm,
+  setSearchTerm,
+  ...restProps
+}) {
+  const [searchActive, setSearchActive] = useState(false);
+
+  return (
+    <Search {...restProps}>
+      <SearchIcon
+        onClick={() => {
+          if (searchActive) {
+            setSearchTerm('');
+          }
+          setSearchActive(!searchActive);
+        }}
+      >
+        <img src='/images/icons/search.png' alt='Search' title='Search' />
+      </SearchIcon>
+      <SearchInput
+        value={searchTerm}
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder='Search films and series'
+        active={searchActive}
+      />
+    </Search>
+  );
 };
