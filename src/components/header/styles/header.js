@@ -182,3 +182,65 @@ export const SearchInput = styled.input`
     color: lightgrey;
   }
 `;
+
+export const Picture = styled.div`
+  background: url(${({ src }) => src});
+  background-size: contain;
+  object-fit: cover;
+  border: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+`;
+
+export const Dropdown = styled.div`
+  display: none;
+  position: absolute;
+  background-color: black;
+  padding: 10px;
+  width: 150px;
+  top: 32px;
+  transform: translate(calc(-100% + 32px), 0);
+
+  ${Group} {
+    margin-bottom: 10px;
+    height: 32px;
+  }
+
+  ${Group}:first-of-type ${TextLink} {
+    cursor: default;
+  }
+
+  ${Group}:last-of-type {
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
+  ${Picture} {
+    margin-right: 10px;
+    cursor: default;
+  }
+
+  ${TextLink} {
+    transform: none;
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+`;
+
+export const Profile = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  position: relative;
+
+  button {
+    cursor: pointer;
+  }
+
+  &:hover > ${Dropdown} {
+    display: flex;
+    flex-direction: column;
+  }
+`;
