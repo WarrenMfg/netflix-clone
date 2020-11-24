@@ -9,6 +9,7 @@ export const Background = styled.section`
   flex-direction: column;
   background: url(${backgroundSrcUrl}) top left / cover no-repeat;
   border-bottom: 8px solid #222;
+  margin-bottom: 50px;
 
   @media (max-width: 1000px) {
     background: ${({ src, isVisibleOnMobile }) =>

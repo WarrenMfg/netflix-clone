@@ -17,7 +17,8 @@ export function App() {
           <Browse />
         </Route>
         <Route path={ROUTES.HOME}>
-          <Home />
+          {/* <Home /> */}
+          <Browse />
         </Route>
         <Route path={ROUTES.NO_MATCH}>
           <Home />
