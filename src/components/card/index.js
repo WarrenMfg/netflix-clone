@@ -45,13 +45,22 @@ Card.Items = function CardItems({ children, ...restProps }) {
 };
 
 Card.Item = function CardItem({ item, children, ...restProps }) {
-  const { setShowFeature, setItemFeature } = useContext(FeatureContext);
+  const {
+    showFeature,
+    setShowFeature,
+    itemFeature,
+    setItemFeature
+  } = useContext(FeatureContext);
 
   return (
     <Item
       onClick={() => {
-        setItemFeature(item);
-        setShowFeature(true);
+        if (showFeature && item === itemFeature) {
+          setShowFeature(false);
+        } else {
+          setItemFeature(item);
+          setShowFeature(true);
+        }
       }}
       {...restProps}
     >
