@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import Fuse from 'fuse.js';
 import { Card, Header, Loader } from '../components';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
@@ -7,7 +8,6 @@ import { SelectProfileContainer } from './profiles';
 import { FooterContainer } from './footer';
 
 export function BrowseContainer({ slides }) {
-  console.log('slides', slides);
   // dummy data
   const users = [
     {
@@ -47,6 +47,26 @@ export function BrowseContainer({ slides }) {
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides]);
+
+  // live search
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, {
+      keys: [
+        { name: 'data.title', weight: 3 },
+        { name: 'data.description', weight: 2 },
+        { name: 'data.genre', weight: 1 }
+      ],
+      ignoreLocation: true, // search entire string
+      threshold: 0.2 // almost an exact match; still case-insensitive
+    });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+    // if search results, then show; otherwise show all from category
+    if (searchTerm.length > 3 && results.length) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchTerm]);
 
   const logout = () => {
     firebase
