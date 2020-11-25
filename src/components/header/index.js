@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Background,
@@ -79,6 +79,7 @@ Header.Search = function HeaderSearch({
   ...restProps
 }) {
   const [searchActive, setSearchActive] = useState(false);
+  const searchInput = useRef(null);
 
   return (
     <Search {...restProps}>
@@ -86,6 +87,8 @@ Header.Search = function HeaderSearch({
         onClick={() => {
           if (searchActive) {
             setSearchTerm('');
+          } else {
+            searchInput.current.focus();
           }
           setSearchActive(!searchActive);
         }}
@@ -97,6 +100,7 @@ Header.Search = function HeaderSearch({
         onChange={({ target }) => setSearchTerm(target.value)}
         placeholder='Search films and series'
         active={searchActive}
+        ref={searchInput}
       />
     </Search>
   );
