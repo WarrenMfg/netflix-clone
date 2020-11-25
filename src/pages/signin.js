@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
 import { HeaderContainer } from '../containers/header';
 import Form from '../components/form';
 import { FooterContainer } from '../containers/footer';
@@ -8,7 +7,6 @@ import { FirebaseContext } from '../context/firebase';
 
 export default function SignIn() {
   const { firebase } = useContext(FirebaseContext);
-  const history = useHistory();
   const [error, setError] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
