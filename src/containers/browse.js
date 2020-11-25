@@ -174,7 +174,7 @@ export function BrowseContainer({ slides }) {
               </Card.Items>
 
               {/* feature */}
-              <Card.Feature category={category} />
+              <Card.Feature category={category}></Card.Feature>
             </Card>
           ))}
         </Card.Group>
