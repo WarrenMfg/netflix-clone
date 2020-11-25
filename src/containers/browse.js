@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Fuse from 'fuse.js';
-import { Card, Header, Loader } from '../components';
+import { Card, Header, Loader, Player } from '../components';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
@@ -39,7 +39,7 @@ export function BrowseContainer({ slides }) {
   // simulate profile fetching
   useEffect(() => {
     if (profile.displayName) {
-      setTimeout(() => setIsLoading(false), 0);
+      setTimeout(() => setIsLoading(false), 1000);
     }
   }, [profile]);
 
@@ -81,8 +81,6 @@ export function BrowseContainer({ slides }) {
       <Loader photo={profile.photoURL} />
     ) : (
       <>
-        <Loader.UnlockBody />
-
         <Header src='joker1'>
           <Header.Frame>
             {/* category */}
@@ -173,8 +171,13 @@ export function BrowseContainer({ slides }) {
                 ))}
               </Card.Items>
 
-              {/* feature */}
-              <Card.Feature category={category}></Card.Feature>
+              {/* feature & player */}
+              <Card.Feature category={category}>
+                <Player>
+                  <Player.Button />
+                  <Player.Video />
+                </Player>
+              </Card.Feature>
             </Card>
           ))}
         </Card.Group>

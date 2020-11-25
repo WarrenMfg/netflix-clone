@@ -6,21 +6,6 @@ export const LockBody = createGlobalStyle`
     }
 `;
 
-export const UnlockBody = createGlobalStyle`
-    body {
-        overflow: visible;
-    }
-`;
-
-// export const Spinner = styled.img`
-//   width: 100px;
-//   height: 100px;
-//   position: fixed;
-//   top: 50vh;
-//   left: 50vw;
-//   transform: translate(-50%, -50%);
-// `;
-
 export const Container = styled.div`
   position: fixed;
   width: 100vw;

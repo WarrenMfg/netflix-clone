@@ -1,15 +1,15 @@
 import React, { useState, useContext, createContext } from 'react';
 import ReactDOM from 'react-dom';
-import { Container, Overlay, Inner, Button } from './styles/player';
+import { LockBody, Overlay, Inner, Button, Close } from './styles/player';
 
 export const PlayerContext = createContext();
 
-export default function Player({ children, ...restProps }) {
+export default function Player({ children }) {
   const [showPlayer, setShowPlayer] = useState(false);
 
   return (
     <PlayerContext.Provider value={{ showPlayer, setShowPlayer }}>
-      <Container {...restProps}>{children}</Container>
+      {children}
     </PlayerContext.Provider>
   );
 }
@@ -18,13 +18,24 @@ Player.Video = function PlayerVideo({ ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
   const children = (
-    <Overlay onClick={() => setShowPlayer(false)} {...restProps}>
-      <Inner>
-        <video id='netflix-player' controls>
-          <source src='/videos/bunny.mp4' type='video/mp4' />
-        </video>
-      </Inner>
-    </Overlay>
+    <>
+      <LockBody />
+      <Overlay
+        onClick={({ target }) =>
+          target.tagName !== 'VIDEO' && setShowPlayer(false)
+        }
+        {...restProps}
+      >
+        <Inner>
+          <video id='netflix-player' controls autoPlay>
+            <source src='/videos/bunny.mp4' type='video/mp4' />
+          </video>
+          <Close onClick={() => setShowPlayer(false)}>
+            <img src='/images/icons/close.png' alt='Close' title='Close' />
+          </Close>
+        </Inner>
+      </Overlay>
+    </>
   );
   return showPlayer ? ReactDOM.createPortal(children, document.body) : null;
 };

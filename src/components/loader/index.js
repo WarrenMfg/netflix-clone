@@ -16,7 +16,3 @@ export default function Loader({ photo }) {
     </Container>
   );
 }
-
-Loader.UnlockBody = function LoaderUnlockBody() {
-  return <UnlockBody />;
-};

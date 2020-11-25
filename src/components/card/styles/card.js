@@ -90,13 +90,13 @@ export const Item = styled.div`
 
   &:hover {
     transform: scale(1.2);
-    z-index: 100;
+    z-index: 3;
   }
 
   @media (min-width: 1000px) {
     &:hover ${Meta}, &:hover ${Text}, &:hover ${Title} {
       display: block;
-      z-index: 100;
+      z-index: 3;
     }
   }
 
@@ -153,14 +153,14 @@ export const Feature = styled.div`
   background-size: contain;
   position: relative;
   height: 320px;
-  /* background-position-x: right; */
+  background-position-x: center;
   background-repeat: no-repeat;
   background-color: black;
+  background-size: auto;
   margin: 0 56px;
 
   @media (max-width: 1000px) {
-    height: auto;
-    background-size: auto;
+    height: 320px;
     margin: 0 30px;
 
     ${FeatureTitle} {
@@ -175,18 +175,17 @@ export const Feature = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: 56px;
-  max-width: 500px;
+  padding: 25px 56px;
+  max-width: 600px;
   line-height: normal;
 
   @media (max-width: 1000px) {
     padding: 30px;
-    max-width: none;
+    max-width: 75%;
   }
 `;
 
 export const FeatureCloseButton = styled.button`
-  /* color: white; */
   position: absolute;
   right: 20px;
   top: 20px;
