@@ -59,6 +59,8 @@ export const Group = styled.div`
   flex-direction: ${({ flexDirection }) =>
     flexDirection === 'row' ? 'row' : 'column'};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
+  ${({ justifyContent }) =>
+    justifyContent && `justify-content: ${justifyContent}`};
   ${({ margin }) => margin && `margin: ${margin}`};
 `;
 
@@ -150,13 +152,12 @@ export const Feature = styled.div`
   display: flex;
   flex-direction: row;
   background: url(${({ src }) => src});
-  background-size: contain;
   position: relative;
   height: 320px;
   background-position-x: center;
   background-repeat: no-repeat;
   background-color: black;
-  background-size: auto;
+  background-size: cover;
   margin: 0 56px;
 
   @media (max-width: 1000px) {

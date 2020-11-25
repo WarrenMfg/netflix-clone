@@ -151,7 +151,7 @@ export function BrowseContainer({ slides, user }) {
         </Header>
 
         {/* all content */}
-        <Card.Group>
+        <Card.Group alignItems={'center'} justifyContent={'center'}>
           {slideRows.map(slideRow => (
             // cards container with useContext
             <Card key={`${category}-${slideRow.genre.toLowerCase()}`}>
