@@ -1,4 +1,3 @@
-import { formatWithCursor } from 'prettier';
 import React from 'react';
 import { Accordion, OptForm } from '../components';
 import faqsData from '../fixtures/faqs.json';
