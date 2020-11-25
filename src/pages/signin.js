@@ -21,9 +21,7 @@ export default function SignIn() {
     firebase
       .auth()
       .signInWithEmailAndPassword(emailAddress, password)
-      .then(() => {
-        history.push(ROUTES.BROWSE);
-      })
+      // useAuthListener will trigger redirect to browse page
       .catch(error => setError(error.message));
   };
 

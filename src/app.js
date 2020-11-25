@@ -31,7 +31,7 @@ export function App() {
 
         {/* browse */}
         <ProtectedRoute path={ROUTES.BROWSE} user={user}>
-          <Browse />
+          <Browse user={user} />
         </ProtectedRoute>
 
         {/* home */}

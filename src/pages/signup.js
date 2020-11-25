@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
 import { HeaderContainer } from '../containers/header';
 import Form from '../components/form';
 import { FooterContainer } from '../containers/footer';
@@ -8,7 +7,6 @@ import { FirebaseContext } from '../context/firebase';
 
 export default function SignUp() {
   const { firebase } = useContext(FirebaseContext);
-  const history = useHistory();
   const [error, setError] = useState('');
   const [firstName, setFirstName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
@@ -28,9 +26,7 @@ export default function SignUp() {
           photoURL: Math.floor(Math.random() * 4) + 1
         })
       )
-      .then(() => {
-        history.push(ROUTES.BROWSE);
-      })
+      // useAuthListener will trigger redirect to browse page
       .catch(error => setError(error.message));
   };
 

@@ -1,33 +1,30 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import Fuse from 'fuse.js';
 import { Card, Header, Loader, Player } from '../components';
-import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
 import { FooterContainer } from './footer';
 
-export function BrowseContainer({ slides }) {
-  // dummy data
+export function BrowseContainer({ slides, user }) {
+  // using dummy data of multiple users with actual user
   const users = [
     {
-      displayName: 'Reed Hastings',
+      displayName: 'Reed',
       photoURL: '1'
     },
     {
-      displayName: 'Jeff Bezos',
+      displayName: 'Jeff',
       photoURL: '2'
     },
     {
-      displayName: 'Tim Cook',
+      displayName: 'Tim',
       photoURL: '3'
     },
     {
-      displayName: 'Sundar Pichai',
+      displayName: user.displayName,
       photoURL: '4'
     }
   ];
-  const history = useHistory();
   const [category, setCategory] = useState('series');
   const [profile, setProfile] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +33,7 @@ export function BrowseContainer({ slides }) {
 
   const { firebase } = useContext(FirebaseContext);
 
-  // simulate profile fetching
+  // simulate selected user profile fetching
   useEffect(() => {
     if (profile.displayName) {
       setTimeout(() => setIsLoading(false), 1000);
@@ -73,7 +70,7 @@ export function BrowseContainer({ slides }) {
     firebase
       .auth()
       .signOut()
-      // app.js router will handle redirect
+      // useAuthListener will trigger redirect to home page
       .catch(err => {
         console.log('LOGOUT FUNC:', err);
       });
@@ -189,6 +186,8 @@ export function BrowseContainer({ slides }) {
       </>
     )
   ) : (
+    // pass down 'user' prop instead of 'users' dummy data to retrieve actual user.displayName and user.photoURL
+    // then change .map() in SelectProfileContainer to render the one user
     <SelectProfileContainer users={users} setProfile={setProfile} />
   );
 }
