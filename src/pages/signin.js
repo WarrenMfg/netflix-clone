@@ -35,6 +35,7 @@ export default function SignIn() {
               type='email'
               placeholder='Email Address'
               value={emailAddress}
+              autoFocus
               onChange={({ target }) => setEmailAddress(target.value)}
             />
             <Form.Input

@@ -21,7 +21,9 @@ export const HTMLFormElement = styled.form`
   width: 100%;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input.attrs(({ autoFocus }) => ({
+  autoFocus: autoFocus ? true : false
+}))`
   background: #333;
   border-radius: 4px;
   border: none;

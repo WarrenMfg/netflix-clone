@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { HeaderContainer } from '../containers/header';
 import Form from '../components/form';
 import { FooterContainer } from '../containers/footer';
@@ -9,8 +10,14 @@ export default function SignUp() {
   const { firebase } = useContext(FirebaseContext);
   const [error, setError] = useState('');
   const [firstName, setFirstName] = useState('');
-  const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
+
+  // if navigated to signup page via home email address CTA,
+  // then email address is in location.state
+  const { location } = useHistory();
+  const [emailAddress, setEmailAddress] = useState(
+    location.state?.emailAddress || ''
+  );
 
   const isInvalid =
     firstName === '' || emailAddress === '' || password.length < 6;
@@ -43,6 +50,7 @@ export default function SignUp() {
               type='text'
               placeholder='Fist Name'
               value={firstName}
+              autoFocus
               onChange={({ target }) => setFirstName(target.value)}
             />
             <Form.Input
