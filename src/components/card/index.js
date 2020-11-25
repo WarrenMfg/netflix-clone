@@ -81,6 +81,13 @@ Card.Feature = function CardFeature({ category, children, ...restProps }) {
     FeatureContext
   );
 
+  // not real ratings
+  let maturity;
+  if (itemFeature.maturity < 7) maturity = 'G';
+  else if (itemFeature.maturity < 14) maturity = 'PG';
+  else if (itemFeature.maturity < 18) maturity = 'PG-13';
+  else maturity = 'R';
+
   return showFeature ? (
     <Feature
       src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
@@ -93,9 +100,7 @@ Card.Feature = function CardFeature({ category, children, ...restProps }) {
         </FeatureCloseButton>
 
         <Group margin='30px 0' flexDirection='row' alignItems='center'>
-          <Maturity rating={itemFeature.maturity}>
-            {itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
-          </Maturity>
+          <Maturity rating={itemFeature.maturity}>{maturity}</Maturity>
           <FeatureText fontWeight='bold'>
             {itemFeature.genre.charAt(0).toUpperCase() +
               itemFeature.genre.slice(1)}

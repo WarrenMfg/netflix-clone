@@ -201,11 +201,11 @@ export const FeatureCloseButton = styled.button`
 `;
 
 export const Maturity = styled.div`
-  background-color: ${({ rating }) => (rating >= 15 ? 'red' : 'green')};
-  border-radius: 50%;
-  width: 25px;
+  background-color: ${({ rating }) => (rating < 18 ? 'green' : 'red')};
+  border-radius: 25px;
+  min-width: 25px;
   height: 25px;
-  padding: 5px;
+  padding: 5px 7px;
   text-align: center;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
