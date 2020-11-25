@@ -68,12 +68,15 @@ export function BrowseContainer({ slides }) {
     }
   }, [searchTerm]);
 
+  // logout function
   const logout = () => {
     firebase
       .auth()
       .signOut()
-      .then(() => history.replace(ROUTES.HOME))
-      .catch(console.log);
+      // app.js router will handle redirect
+      .catch(err => {
+        console.log('LOGOUT FUNC:', err);
+      });
   };
 
   return profile.displayName ? (
