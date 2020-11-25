@@ -13,7 +13,7 @@ export default function SignIn() {
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
 
-  const isInvalid = emailAddress === '' || password === '';
+  const isInvalid = emailAddress === '' || password.length < 6;
 
   const handleSignIn = e => {
     e.preventDefault();
