@@ -143,7 +143,10 @@ export function BrowseContainer({ slides, user }) {
               guise he projects in a futile attempt to feel like he's part of
               the world around him.
             </Header.Text>
-            <Header.PlayButton>Play</Header.PlayButton>
+            <Player>
+              <Player.Button />
+              <Player.Video />
+            </Player>
           </Header.Feature>
         </Header>
 

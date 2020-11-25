@@ -94,6 +94,7 @@ export const Text = styled.p`
   font-size: 22px;
   line-height: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.66);
+  margin-bottom: 15px;
 `;
 
 export const Feature = styled(Frame)`
@@ -110,26 +111,6 @@ export const Feature = styled(Frame)`
 export const Callout = styled.h2`
   font-size: 50px;
   font-weight: bold;
-`;
-
-export const PlayButton = styled.button`
-  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
-  background-color: #e6e6e6;
-  color: #000;
-  border-width: 0;
-  padding: 10px 20px;
-  border-radius: 5px;
-  max-width: 130px;
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: #ff1e1e;
-    color: white;
-  }
 `;
 
 export const Search = styled.div`

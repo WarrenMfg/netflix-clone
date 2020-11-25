@@ -65,10 +65,6 @@ Header.Callout = function HeaderCallout({ children, ...restProps }) {
   return <Callout {...restProps}>{children}</Callout>;
 };
 
-Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
-  return <PlayButton {...restProps}>{children}</PlayButton>;
-};
-
 Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
 };
