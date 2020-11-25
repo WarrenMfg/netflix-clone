@@ -12,7 +12,6 @@ export default function useAuthListener() {
       if (authUser) {
         localStorage.setItem('authUser', JSON.stringify(authUser));
         setUser(authUser);
-        console.log('auth state changed');
       } else {
         localStorage.removeItem('authUser');
         setUser(null);
