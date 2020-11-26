@@ -1,13 +1,16 @@
 const app = require('express')();
-const morgan = require('morgan');
+let morgan;
 const { resolve } = require('path');
 const { createGzip } = require('zlib');
 const { createReadStream } = require('fs');
 const PORT = process.env.PORT || 50000;
 
-app.use(morgan('dev'));
+if (process.env.NODE_ENV !== 'production') {
+  morgan = require('morgan');
+  app.use(morgan('dev'));
+}
 
-// compression and streaming utility function
+// compression, streaming, and caching utility function
 const compressAndStream = (resolvedFilePath, res) => {
   return new Promise(resolve => {
     const gzip = createGzip();
@@ -21,10 +24,12 @@ const compressAndStream = (resolvedFilePath, res) => {
   });
 };
 
+// bundle
 app.get('/bundle.js', (req, res) => {
   return compressAndStream(resolve(__dirname, '../bundle.js'), res);
 });
 
+// aux images
 app.get('/images/:subDirectory/:file', (req, res) => {
   const { subDirectory, file } = req.params;
   if (file === 'logo.svg') {
@@ -39,6 +44,7 @@ app.get('/images/:subDirectory/:file', (req, res) => {
   );
 });
 
+// category images
 app.get('/images/:category/:genre/:item/:file', (req, res) => {
   const { category, genre, item, file } = req.params;
   return compressAndStream(
@@ -47,10 +53,12 @@ app.get('/images/:category/:genre/:item/:file', (req, res) => {
   );
 });
 
+// favicon
 app.get('/favicon.ico', (req, res) => {
   return compressAndStream(resolve(__dirname, '../favicon.ico'), res);
 });
 
+// video
 app.get('/videos/:video', (req, res) => {
   const { video } = req.params;
   res.set({
@@ -59,8 +67,10 @@ app.get('/videos/:video', (req, res) => {
   return res.sendFile(resolve(__dirname, '../videos', video));
 });
 
+// index.html
 app.get('/*', (req, res) => {
   return compressAndStream(resolve(__dirname, '../index.html'), res);
 });
 
+// listen
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

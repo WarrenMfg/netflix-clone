@@ -17,52 +17,6 @@ export const Inner = styled.div`
 export const Item = styled.div`
   color: white;
   margin-bottom: 10px;
-  max-height: ${({ isOpen }) => (isOpen ? '100%' : '70.59px')};
-
-  overflow: hidden;
-  animation: ${({ isOpen }) => (isOpen ? 'open' : 'close')};
-  animation-duration: 350ms;
-  animation-timing-function: ease;
-  animation-fill-mode: ${({ isOpen }) => (isOpen ? 'backwards' : 'forwards')};
-
-  @keyframes open {
-    from {
-      max-height: 70.59px;
-    }
-    to {
-      max-height: 100%;
-    }
-  }
-
-  @keyframes close {
-    from {
-      max-height: 100%;
-    }
-    to {
-      max-height: 70.59px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    max-height: ${({ isOpen }) => (isOpen ? '100%' : '43.59px')};
-    @keyframes open {
-      from {
-        max-height: 43.59px;
-      }
-      to {
-        max-height: 100%;
-      }
-    }
-
-    @keyframes close {
-      from {
-        max-height: 100%;
-      }
-      to {
-        max-height: 43.59px;
-      }
-    }
-  }
 
   &:first-of-type {
     margin-top: 70px;
@@ -83,6 +37,7 @@ export const Header = styled.h2`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   cursor: pointer;
   margin-bottom: 1px;
   font-size: 26px;
@@ -103,7 +58,11 @@ export const Header = styled.h2`
   }
 `;
 
-export const BodyContainer = styled.div``;
+export const BodyContainer = styled.div`
+  overflow: hidden;
+  max-height: ${({ isOpen }) => (isOpen ? '600px;' : '0px;')};
+  transition: max-height 250ms linear;
+`;
 
 export const Body = styled.p`
   font-size: 26px;
@@ -111,7 +70,6 @@ export const Body = styled.p`
   background: #303030;
   padding: 20px;
   user-select: none;
-  transition: all 0.5s linear;
 
   ${Item} &:nth-of-type(2) {
     padding: 0 20px 20px;
