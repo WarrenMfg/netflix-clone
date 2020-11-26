@@ -21,6 +21,11 @@ export const List = styled.ul`
   flex-direction: row;
   padding: 0;
   margin: 0;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Picture = styled.img`
@@ -53,5 +58,9 @@ export const User = styled.li`
 
   &:hover > ${Name} {
     font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 20px;
   }
 `;
