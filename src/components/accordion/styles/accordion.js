@@ -17,6 +17,31 @@ export const Inner = styled.div`
 export const Item = styled.div`
   color: white;
   margin-bottom: 10px;
+  max-height: ${({ isOpen }) => (isOpen ? '100%' : '70.59px')};
+
+  overflow: hidden;
+  animation: ${({ isOpen }) => (isOpen ? 'open' : 'close')};
+  animation-duration: 350ms;
+  animation-timing-function: ease;
+  animation-fill-mode: ${({ isOpen }) => (isOpen ? 'backwards' : 'forwards')};
+
+  @keyframes open {
+    from {
+      max-height: 70.59px;
+    }
+    to {
+      max-height: 100%;
+    }
+  }
+
+  @keyframes close {
+    from {
+      max-height: 100%;
+    }
+    to {
+      max-height: 70.59px;
+    }
+  }
 
   &:first-of-type {
     margin-top: 70px;
@@ -57,15 +82,19 @@ export const Header = styled.h2`
   }
 `;
 
+export const BodyContainer = styled.div``;
+
 export const Body = styled.p`
   font-size: 26px;
   line-height: 1.2;
   background: #303030;
-  padding: ${({ isOpen }) => (isOpen ? '20px' : '0 20px')};
+  padding: 20px;
   user-select: none;
-  max-height: ${({ isOpen }) => (isOpen ? 'calc(1px * 100%)' : '0px')};
-  overflow: hidden;
-  transition: all 0.25s ease;
+  transition: all 0.5s linear;
+
+  ${Item} &:nth-of-type(2) {
+    padding: 0 20px 20px;
+  }
 
   @media (max-width: 600px) {
     font-size: 16px;

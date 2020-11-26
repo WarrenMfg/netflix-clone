@@ -5,6 +5,7 @@ import {
   Item,
   Title,
   Header,
+  BodyContainer,
   Body
 } from './styles/accordion';
 
@@ -23,7 +24,9 @@ Accordion.Item = function AccordionItem({ children, ...restProps }) {
 
   return (
     <ToggleItemContext.Provider value={{ isOpen, setIsOpen }}>
-      <Item {...restProps}>{children}</Item>
+      <Item isOpen={isOpen} {...restProps}>
+        {children}
+      </Item>
     </ToggleItemContext.Provider>
   );
 };
@@ -51,8 +54,12 @@ Accordion.Body = function AccordionBody({ children, ...restProps }) {
   const { isOpen } = useContext(ToggleItemContext);
 
   return (
-    <Body isOpen={isOpen} {...restProps}>
-      {children}
-    </Body>
+    <BodyContainer isOpen={isOpen} {...restProps}>
+      {children.map((para, i) => (
+        <Body key={i} isOpen={isOpen} {...restProps}>
+          {para}
+        </Body>
+      ))}
+    </BodyContainer>
   );
 };
