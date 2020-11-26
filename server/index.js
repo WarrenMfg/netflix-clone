@@ -1,12 +1,24 @@
 const app = require('express')();
-let morgan;
+let morgan, config;
 const { resolve } = require('path');
 const { createGzip } = require('zlib');
 const { createReadStream } = require('fs');
 const PORT = process.env.PORT || 50000;
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'production') {
+  config = {
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID
+  };
+} else {
   morgan = require('morgan');
+  config = require('../src/config');
+
   app.use(morgan('dev'));
 }
 
@@ -23,6 +35,10 @@ const compressAndStream = (resolvedFilePath, res) => {
     resolve();
   });
 };
+
+app.get('/firebase', (req, res) => {
+  res.send(config);
+});
 
 // bundle
 app.get('/bundle.js', (req, res) => {
