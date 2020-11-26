@@ -43,6 +43,27 @@ export const Item = styled.div`
     }
   }
 
+  @media (max-width: 600px) {
+    max-height: ${({ isOpen }) => (isOpen ? '100%' : '43.59px')};
+    @keyframes open {
+      from {
+        max-height: 43.59px;
+      }
+      to {
+        max-height: 100%;
+      }
+    }
+
+    @keyframes close {
+      from {
+        max-height: 100%;
+      }
+      to {
+        max-height: 43.59px;
+      }
+    }
+  }
+
   &:first-of-type {
     margin-top: 70px;
   }
