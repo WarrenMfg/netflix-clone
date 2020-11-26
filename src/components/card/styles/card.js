@@ -120,13 +120,11 @@ export const Item = styled.div`
 `;
 
 export const Image = styled.img`
-  /* border: 0; */
   width: 100%;
   max-width: 305px;
   cursor: pointer;
   height: auto;
   padding: 0;
-  /* margin: 0; */
 `;
 
 export const FeatureTitle = styled(Title)`
@@ -137,14 +135,12 @@ export const FeatureTitle = styled(Title)`
 
 export const FeatureText = styled.p`
   font-size: 18px;
-  /* color: white; */
   font-weight: ${({ fontWeight }) => {
     fontWeight === 'bold' ? 'bold' : 'normal';
   }};
-  /* margin: 0; */
 
   @media (max-width: 600px) {
-    line-height: 22px;
+    display: none;
   }
 `;
 
