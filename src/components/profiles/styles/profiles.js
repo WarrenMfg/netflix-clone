@@ -60,7 +60,11 @@ export const User = styled.li`
     font-weight: bold;
   }
 
+  &:last-of-type {
+    margin-right: 0;
+  }
+
   @media (max-width: 600px) {
-    margin-bottom: 20px;
+    margin: 0 0 20px;
   }
 `;
