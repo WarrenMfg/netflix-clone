@@ -12,7 +12,10 @@ const compressAndStream = (resolvedFilePath, res) => {
   return new Promise(resolve => {
     const gzip = createGzip();
     const source = createReadStream(resolvedFilePath);
-    res.set({ 'Content-Encoding': 'gzip' });
+    res.set({
+      'Content-Encoding': 'gzip',
+      'Cache-Control': 'public, max-age=86400'
+    });
     source.pipe(gzip).pipe(res);
     resolve();
   });
@@ -25,6 +28,9 @@ app.get('/bundle.js', (req, res) => {
 app.get('/images/:subDirectory/:file', (req, res) => {
   const { subDirectory, file } = req.params;
   if (file === 'logo.svg') {
+    res.set({
+      'Cache-Control': 'public, max-age=86400'
+    });
     return res.sendFile(resolve(__dirname, '../images', subDirectory, file));
   }
   return compressAndStream(
@@ -47,6 +53,9 @@ app.get('/favicon.ico', (req, res) => {
 
 app.get('/videos/:video', (req, res) => {
   const { video } = req.params;
+  res.set({
+    'Cache-Control': 'public, max-age=86400'
+  });
   return res.sendFile(resolve(__dirname, '../videos', video));
 });
 
