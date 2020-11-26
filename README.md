@@ -1,7 +1,7 @@
-# **Netflix Clone**
+# **Notflix and Chill**
 
-## With Compound Styled Components
+# Netflix Clone with Styled Compound Components
 
-_This is a work in progress_
+[Heroku website](https://notflix-and-chill.herokuapp.com/)
 
 ![Jumbotrons](images/readme/jumbotrons.jpg)
