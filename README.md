@@ -2,8 +2,6 @@
 
 # Netflix Clone with Compound Styled Components
 
-[Heroku website](https://notflix-and-chill.herokuapp.com/)
-
 [Video demonstration](https://www.youtube.com/watch?v=uga2Biv_HH0)
 
 React | Fuse.js | Express | Node | Firebase | Heroku
